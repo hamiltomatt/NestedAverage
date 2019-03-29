@@ -22,6 +22,26 @@
   (is (= (stats_flat '()) nil))
 )
 
+;tests for second example
+(deftest b-headtest
+  (is (= (stats '(10 ((30 1) 20) (8 (5 (50 7)) 9) 40)) {:largest 50, :smallest 1, :count 10, :average 18}))
+  )
+(deftest b-headtest2
+  (is (= (get (stats '(10 ((30 1) 20) (8 (5 (50 7)) 9) 40)) :average) 18))
+  )
+(deftest b-headtest3
+  (is (= (stats '(0)) {:largest 0, :smallest 0, :count 1, :average 0}))
+  )
+(deftest b-headtest4
+  (is (= (stats '(1)) {:largest 1, :smallest 1, :count 1, :average 1}))
+  )
+(deftest b-headtest5
+  (is (= (get (stats '(0))  :average) 0))
+  )
+(deftest b-headtest6
+  (is (= (stats '()) {:largest nil, :smallest nil, :count 0, :average 0}))
+  )
+
 ;tests for third example
 (deftest b-tailtest1
   (is (= (nested-averageTail '("d" "g" :a)) nil))

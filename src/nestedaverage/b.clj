@@ -89,7 +89,13 @@
     ))
 
 (defn nested-avg-tree [nlis]
-  (/ (sum-nested nlis) (count-nested nlis)))
+  (let [s (sum-nested nlis) c (count-nested nlis)]
+    (if (= c 0)
+      0
+      (/ (sum-nested nlis) (count-nested nlis))
+    )
+  )
+)
 
 (defn stats
   "Gets stats about a nested list"

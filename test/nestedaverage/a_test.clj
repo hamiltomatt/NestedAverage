@@ -15,8 +15,22 @@
 (deftest a-test4
   (is (= (nested-average  '()) nil))
 )
-(deftest a-test5                                                                ;fails as cannot eval longs
+(deftest a-test5                                                                ;fails as cannot eval floats
   (is (= (nested-average '(10 ((30.2 1.34) 20.8) (8 (5 (50 7)) 9) 40)) 18.134))
+)
+
+; tests for second examole
+(deftest a-headtest
+  (is (= (nested-avg-tree '(10 ((30 1) 20) (8 (5 (50 7)) 9) 40)) 18))
+)
+(deftest a-headtest2
+  (is (= (nested-avg-tree '(1)) 1))
+)
+(deftest a-headtest3
+  (is (= (nested-avg-tree '(0)) 0))
+)
+(deftest a-headtest4
+  (is (= (nested-avg-tree  '()) 0))
 )
 
 ; tests for third example
