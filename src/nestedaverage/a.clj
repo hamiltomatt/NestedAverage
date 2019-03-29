@@ -21,8 +21,6 @@
     )
   )
 
-; second example, using head recursion
-
 (defn nested-avg-flatten
   ([nlis] (nested-avg-flatten (flatten nlis) '() 0))
   ([nlis used acc]
@@ -31,6 +29,8 @@
      :Else
      (recur (rest nlis) (cons (first nlis) used) (+ (first nlis) acc))
      )))
+
+; second example, using head recursion
 
 ; Tree based head recursive solution
 (defn tree? [lis]
@@ -76,10 +76,3 @@
    )
   )
 )
-
-; tests
-(nested-average '(10 ((30 1) 20) (8 (5 (50 7)) 9) 40))        ;18
-(nested-average '(10 ((30.2 1.34) 20.8) (8 (5 (50 7)) 9) 40)) ;18.134
-(nested-average '(1))                                         ;1
-(nested-average '(0))                                         ;0
-(nested-average '())                                          ;nil
